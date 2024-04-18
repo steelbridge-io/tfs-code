@@ -83,7 +83,8 @@
     });
 </script>
 
-<!-- This HTML code generates a personalised input field for uploading a custom fallback 'poster' image for a video. This image is utilized when the video cannot play, such as on mobile devices which do not support auto-play video.  -->
+<!-- This meta field generates a personalised input field for uploading a
+custom fallback 'poster' image for a video. This image is utilized when the video cannot play, such as on mobile devices which do not support auto-play video.  -->
 <div class="sections-meta-cont">
     <strong><label for="private-temp-video-poster"
                    class="sections-row-title"><?php _e( 'Hero Video Poster',
@@ -103,3 +104,36 @@
         and desktop.</p>
 </div>
 
+
+<!-- Template HTML/PHP used inside template files for rendering meta content
+in browser.
+ -->
+
+<?php if ( !empty( $private_temp_video ) || !empty($private_temp_video_poster) ) : ?>
+    <section id="banner" class="private-temp-hero-overlay">
+        <div class="overlay"></div>
+        <video id="sections-private-background-video" class="private-temp-video"
+               autoplay
+               playsinline loop
+               muted
+               poster="<?php echo $private_temp_video_poster; ?>">
+            <source src="<?php echo $private_temp_video; ?>" type="video/mp4">
+        </video>
+        <div class="inner-background"></div>
+        <div id="private-temp-hero-video" class="inner">
+			<?php
+			if ( ! empty( $private_waters_logo ) ) { ?>
+                <img src="<?php echo $private_waters_logo; ?>"
+                     class="img-responsive center-block"
+                     alt="The Fly Shop Signature Travel Destination">
+			<?php } ?>
+            <h2><?php the_title(); ?></h2>
+			<?php
+			if ( ! empty( $private_waters_description ) ) { ?>
+                <p class="template-description"><?php echo $private_waters_description; ?></p>
+			<?php } ?>
+            <h3>800 &bull; 669 &bull; 3474</h3>
+        </div>
+        <a href="#main" class="more scrolly">Read more here!</a>
+    </section>
+<?php endif;
