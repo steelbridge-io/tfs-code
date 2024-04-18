@@ -1,0 +1,29 @@
+# macOS generated files
+.DS_Store
+
+# PhpStorm IDE files
+.idea/
+
+# Node specific
+node_modules/
+npm-debug.log
+
+# Build output
+dist/
+
+# Databases
+*.sqlite
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directory
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Yarn cache directory
+.yarn-cache/
